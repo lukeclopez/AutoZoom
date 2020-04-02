@@ -10,6 +10,8 @@ pyautogui = "*"
 psutil = "*"
 opencv-python = "*"
 autopep8 = "*"
+pyinstaller = "*"
+setuptools = "<45.0.0"
 
 [requires]
 python_version = "3.7"
