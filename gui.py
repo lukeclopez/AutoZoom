@@ -11,8 +11,12 @@ class Window:
     def __init__(self):
         self.window = tk.Tk()
         self.window.geometry(f"{WIDTH}x{HEIGHT}")
+        self.window.attributes("-fullscreen", True)
+        self.fullScreenState = False
+        self.window.bind("<F11>", self.toggle_full_screen)
+        self.window.bind("<Escape>", self.quit_full_screen)
 
-        large_font = font.Font(size=200)
+        large_font = font.Font(size=150)
 
         tk.Button(
             self.window,
@@ -21,7 +25,22 @@ class Window:
             command=script
         ).pack()
 
+        entry = tk.Entry(
+            self.window,
+            font=large_font
+        )
+        entry.pack()
+        entry.focus_set()
+
         self.window.mainloop()
+
+    def toggle_full_screen(self, event):
+        self.fullScreenState = not self.fullScreenState
+        self.window.attributes("-fullscreen", self.fullScreenState)
+
+    def quit_full_screen(self, event):
+        self.fullScreenState = False
+        self.window.attributes("-fullscreen", self.fullScreenState)
 
 
 if __name__ == '__main__':
