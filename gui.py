@@ -22,15 +22,15 @@ class Window:
             self.window,
             font=large_font,
             text="Join",
-            command=script
+            command=lambda: script(*self.entry.get().split(" "))
         ).pack()
 
-        entry = tk.Entry(
+        self.entry = tk.Entry(
             self.window,
             font=large_font
         )
-        entry.pack()
-        entry.focus_set()
+        self.entry.pack()
+        self.entry.focus_set()
 
         self.window.mainloop()
 
