@@ -16,7 +16,7 @@ class Window:
             self.window,
             font=large_font
         )
-        self.entry.pack()
+        self.entry.pack(padx=50, pady=50)
         self.entry.focus_set()
 
         tk.Button(
@@ -24,7 +24,7 @@ class Window:
             font=large_font,
             text="Join",
             command=lambda: script(*self.entry.get().split(" "))
-        ).pack()
+        ).pack(padx=50, pady=50)
 
         self.window.mainloop()
 
