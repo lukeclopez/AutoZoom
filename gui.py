@@ -10,13 +10,14 @@ class Window:
         self.window.state("zoomed")
         self.window.bind("<Escape>", quit)
 
-        large_font = font.Font(size=150)
+        large_font = font.Font(size=100)
 
         self.entry = tk.Entry(
             self.window,
-            font=large_font
+            font=large_font,
+            width=16
         )
-        self.entry.pack(padx=50, pady=50)
+        self.entry.grid(padx=50, pady=50)
         self.entry.focus_set()
 
         tk.Button(
@@ -24,7 +25,7 @@ class Window:
             font=large_font,
             text="Join",
             command=lambda: script(*self.entry.get().split(" "))
-        ).pack(padx=50, pady=50)
+        ).grid(row=1, padx=50, pady=50)
 
         self.window.mainloop()
 
