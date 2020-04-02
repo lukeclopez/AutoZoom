@@ -6,7 +6,7 @@ import os
 
 
 def main(meeting_id, meeting_password):
-    with open("path.txt") as f:
+    with open("data/path.txt") as f:
         zoom_path = f.read()
 
     open_zoom(zoom_path)
