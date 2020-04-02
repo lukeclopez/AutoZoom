@@ -1,13 +1,15 @@
 import pyautogui as pag
 import psutil
 import time
+import json
 import os
-
-ZOOM_PATH = r"C:\Users\xluca\AppData\Roaming\Zoom\bin\Zoom.exe"
 
 
 def main(meeting_id, meeting_password):
-    open_zoom()
+    with open("path.txt") as f:
+        zoom_path = f.read()
+
+    open_zoom(zoom_path)
     find_and_click_center("join.png")
     move_mouse_out_of_way()
     find_and_click_center("enter-meeting-id.png")
@@ -33,8 +35,8 @@ def find_and_click_center(image, time_left=5):
         pag.click(x=x, y=y)
 
 
-def open_zoom():
-    psutil.Popen([ZOOM_PATH])
+def open_zoom(path):
+    psutil.Popen([path])
 
 
 if __name__ == "__main__":
