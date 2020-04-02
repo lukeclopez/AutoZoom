@@ -9,7 +9,6 @@ class Window:
         self.window = tk.Tk()
         self.window.state("zoomed")
         self.window.configure(bg="#6e7b8f")
-        self.window.bind("<Escape>", quit)
         self.window.bind(
             "<Return>",
             lambda x: script(*self.entry.get().split(" "))
