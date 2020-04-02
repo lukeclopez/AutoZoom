@@ -18,19 +18,19 @@ class Window:
 
         large_font = font.Font(size=150)
 
-        tk.Button(
-            self.window,
-            font=large_font,
-            text="Join",
-            command=lambda: script(*self.entry.get().split(" "))
-        ).pack()
-
         self.entry = tk.Entry(
             self.window,
             font=large_font
         )
         self.entry.pack()
         self.entry.focus_set()
+
+        tk.Button(
+            self.window,
+            font=large_font,
+            text="Join",
+            command=lambda: script(*self.entry.get().split(" "))
+        ).pack()
 
         self.window.mainloop()
 
