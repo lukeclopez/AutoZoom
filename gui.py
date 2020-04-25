@@ -14,7 +14,7 @@ class Window:
             lambda x: script(*self.entry.get().split(" "))
         )
 
-        large_font = font.Font(size=100)
+        large_font = font.Font(size=75)
 
         self.entry = tk.Entry(
             self.window,
