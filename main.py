@@ -10,29 +10,18 @@ def main(meeting_id, meeting_password):
         zoom_path = f.read()
 
     open_zoom(zoom_path)
-    find_and_click_center("join.png")
-    move_mouse_out_of_way()
-    find_and_click_center("enter-meeting-id.png")
+    time.sleep(3)
+    pag.press('tab')
+    pag.press('enter')
+    time.sleep(3)
     pag.write(meeting_id)
-    find_and_click_center("join-after-meeting-id.png")
-    find_and_click_center("enter-meeting-password.png")
+    for x in range(6):
+        pag.press('tab')
+    pag.press('enter')
+    time.sleep(3)
     pag.write(meeting_password)
-    find_and_click_center("join-meeting-after-password.png")
-
-
-def move_mouse_out_of_way():
-    pag.moveTo(100, 200)
-
-
-def find_and_click_center(image, time_left=5):
-    loc = None
-    while loc == None and time_left > 0:
-        loc = pag.locateCenterOnScreen("images/" + image, confidence=0.9)
-        time_left -= 1
-
-    if loc:
-        x, y = loc
-        pag.click(x=x, y=y)
+    pag.press('tab')
+    pag.press('enter')
 
 
 def open_zoom(path):
